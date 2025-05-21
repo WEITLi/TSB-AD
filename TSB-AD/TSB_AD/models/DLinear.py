@@ -64,7 +64,7 @@ class DLinear():
         print(f"- 窗口大小: {window_size}")
         print(f"- 特征数: {feats}")
         print(f"- 预测长度: {pred_len}")
-        print(f"- 批次大小: {batch_size}")
+        # print(f"- 批次大小: {batch_size}") # Can be commented if too verbose initially
         
         self.model = DLinearModel(self.window_size, feats, self.pred_len, self.device).to(self.device)
         
@@ -78,8 +78,7 @@ class DLinear():
         self.eps = 1e-10
         
     def fit(self, data):
-        print(f"\n开始训练:")
-        print(f"输入数据维度: {data.shape}")
+        print(f"\n开始训练 DLinear: 输入数据维度: {data.shape}")
         
         # 确保数据是浮点型
         data = data.astype(np.float32)
@@ -88,7 +87,7 @@ class DLinear():
         actual_batch_size = min(self.batch_size, len(data) // 4)
         if actual_batch_size < 1:
             actual_batch_size = 1
-        print(f"实际使用的batch size: {actual_batch_size}")
+        # print(f"实际使用的batch size: {actual_batch_size}") # Keep for now, can be removed if needed
         
         tsTrain = data[:int((1-self.validation_size)*len(data))]
         tsValid = data[int((1-self.validation_size)*len(data)):]
@@ -108,24 +107,24 @@ class DLinear():
         )
         
         for epoch in range(1, self.epochs + 1):
-            print(f"\nEpoch {epoch}/{self.epochs}")
+            # print(f"\nEpoch {epoch}/{self.epochs}") # Combined below
             self.model.train()
-            train_loss = 0
+            train_loss_sum = 0 # Changed to sum for clarity
             for batch_idx, (x, target) in enumerate(train_loader):
-                print(f"\n训练批次 {batch_idx + 1}:")
-                print(f"输入 X shape: {x.shape}")
+                # print(f"\n训练批次 {batch_idx + 1}:")
+                # print(f"输入 X shape: {x.shape}")
                 
                 x, target = x.to(self.device), target.to(self.device)
                 
                 self.optimizer.zero_grad()
                 output = self.model(x)
-                print(f"模型输出 shape: {output.shape}")
+                # print(f"模型输出 shape: {output.shape}")
                 
                 # 调整输出和目标维度
                 output = output.view(-1, self.feats)
                 target = target.view(-1, self.feats)
-                print(f"调整后的输出 shape: {output.shape}")
-                print(f"调整后的目标 shape: {target.shape}")
+                # print(f"调整后的输出 shape: {output.shape}")
+                # print(f"调整后的目标 shape: {target.shape}")
                 
                 # 计算损失
                 loss = self.loss(output, target)
@@ -135,60 +134,58 @@ class DLinear():
                 torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
                 
                 self.optimizer.step()
-                train_loss += loss.item()
+                train_loss_sum += loss.item()
                 
-                print(f"批次损失: {loss.item():.6f}")
+                # print(f"批次损失: {loss.item():.6f}")
             
             self.model.eval()
-            valid_loss = 0
+            valid_loss_sum = 0 # Changed to sum
             scores = []
             with torch.no_grad():
                 for batch_idx, (x, target) in enumerate(valid_loader):
-                    print(f"\n验证批次 {batch_idx + 1}:")
-                    print(f"输入 X shape: {x.shape}")
+                    # print(f"\n验证批次 {batch_idx + 1}:")
+                    # print(f"输入 X shape: {x.shape}")
                     
                     x, target = x.to(self.device), target.to(self.device)
                     output = self.model(x)
-                    print(f"模型输出 shape: {output.shape}")
+                    # print(f"模型输出 shape: {output.shape}")
                     
                     # 调整输出和目标维度
                     output = output.view(-1, self.feats)
                     target = target.view(-1, self.feats)
-                    print(f"调整后的输出 shape: {output.shape}")
-                    print(f"调整后的目标 shape: {target.shape}")
+                    # print(f"调整后的输出 shape: {output.shape}")
+                    # print(f"调整后的目标 shape: {target.shape}")
                     
                     # 计算损失
                     loss = self.loss(output, target)
-                    valid_loss += loss.item()
+                    valid_loss_sum += loss.item()
                     
                     # 计算异常分数
                     mse = torch.sub(output, target).pow(2)
                     scores.append(mse.cpu())
-                    print(f"批次损失: {loss.item():.6f}")
+                    # print(f"批次损失: {loss.item():.6f}")
             
-            valid_loss /= len(valid_loader)
+            avg_train_loss = train_loss_sum / len(train_loader) if len(train_loader) > 0 else 0
+            avg_valid_loss = valid_loss_sum / len(valid_loader) if len(valid_loader) > 0 else 0
             self.scheduler.step()
             
-            print(f"\nEpoch {epoch} 总结:")
-            print(f"训练损失: {train_loss/len(train_loader):.6f}")
-            print(f"验证损失: {valid_loss:.6f}")
+            print(f"Epoch {epoch}/{self.epochs} | 训练损失: {avg_train_loss:.6f} | 验证损失: {avg_valid_loss:.6f}")
             
-            self.early_stopping(valid_loss, self.model)
+            self.early_stopping(avg_valid_loss, self.model)
             if self.early_stopping.early_stop:
                 print("Early stopping triggered")
                 break
             
             if len(scores) > 0:
-                scores = torch.cat(scores, dim=0)
-                self.mu = torch.mean(scores)
-                self.sigma = torch.var(scores)
-                print(f"异常分数统计:")
-                print(f"- 均值: {self.mu:.6f}")
-                print(f"- 方差: {self.sigma:.6f}")
+                scores_cat = torch.cat(scores, dim=0) # Renamed to avoid conflict
+                self.mu = torch.mean(scores_cat)
+                self.sigma = torch.var(scores_cat)
+                # print(f"异常分数统计 (Epoch {epoch}):")
+                # print(f"- 均值: {self.mu:.6f}")
+                # print(f"- 方差: {self.sigma:.6f}")
     
     def decision_function(self, data):
-        print(f"\n开始预测:")
-        print(f"输入数据维度: {data.shape}")
+        print(f"\n开始预测 DLinear: 输入数据维度: {data.shape}")
         
         try:
             # 确保数据是浮点型
@@ -198,7 +195,7 @@ class DLinear():
             actual_batch_size = min(self.batch_size, len(data) // 4)
             if actual_batch_size < 1:
                 actual_batch_size = 1
-            print(f"实际使用的batch size: {actual_batch_size}")
+            # print(f"实际使用的batch size: {actual_batch_size}")
             
             test_loader = DataLoader(
                 ForecastDataset(data, window_size=self.window_size, pred_len=self.pred_len),
@@ -212,12 +209,12 @@ class DLinear():
             outputs = []
             with torch.no_grad():
                 for batch_idx, (x, target) in enumerate(test_loader):
-                    print(f"\n预测批次 {batch_idx + 1}:")
-                    print(f"输入 X shape: {x.shape}")
+                    # print(f"\n预测批次 {batch_idx + 1}:")
+                    # print(f"输入 X shape: {x.shape}")
                     
                     x, target = x.to(self.device), target.to(self.device)
                     output = self.model(x)
-                    print(f"模型输出 shape: {output.shape}")
+                    # print(f"模型输出 shape: {output.shape}")
                     
                     # 检查输出是否为空
                     if output.numel() == 0:
@@ -226,39 +223,39 @@ class DLinear():
                     # 调整输出和目标维度
                     output = output.view(-1, self.feats)
                     target = target.view(-1, self.feats)
-                    print(f"调整后的输出 shape: {output.shape}")
-                    print(f"调整后的目标 shape: {target.shape}")
+                    # print(f"调整后的输出 shape: {output.shape}")
+                    # print(f"调整后的目标 shape: {target.shape}")
                     
                     # 计算异常分数
                     mse = torch.sub(output, target).pow(2)
                     scores.append(mse.cpu())
                     outputs.append(output.cpu())
-                    print(f"批次异常分数 shape: {mse.shape}")
+                    # print(f"批次异常分数 shape: {mse.shape}")
             
             if len(scores) == 0:
-                raise ValueError("模型没有生成任何输出。请检查输入形状或提前停止条件。")
+                raise ValueError("模型没有生成任何输出 Scores。请检查输入形状或提前停止条件。") # Added "Scores" for clarity
             
             if len(outputs) == 0:
-                raise ValueError("模型没有生成任何输出。请检查输入形状或模型结构。")
+                raise ValueError("模型没有生成任何输出 Outputs。请检查输入形状或模型结构。") # Added "Outputs" for clarity
             
-            scores = torch.cat(scores, dim=0)
-            scores = scores.numpy()
-            scores = np.mean(scores, axis=1)
+            scores_cat = torch.cat(scores, dim=0) # Renamed
+            scores_cat = scores_cat.numpy()
+            scores_cat = np.mean(scores_cat, axis=1)
             
-            if scores.shape[0] < len(data):
+            if scores_cat.shape[0] < len(data):
                 padded_decision_scores_ = np.zeros(len(data))
-                padded_decision_scores_[:self.window_size+self.pred_len-1] = scores[0]
-                padded_decision_scores_[self.window_size+self.pred_len-1:] = scores
+                padded_decision_scores_[:self.window_size+self.pred_len-1] = scores_cat[0]
+                padded_decision_scores_[self.window_size+self.pred_len-1:] = scores_cat
             else:
-                padded_decision_scores_ = scores[:len(data)]
+                padded_decision_scores_ = scores_cat[:len(data)]
             
-            print(f"\n预测完成:")
-            print(f"最终输出维度: {padded_decision_scores_.shape}")
-            print(f"输出统计:")
-            print(f"- 最小值: {padded_decision_scores_.min():.6f}")
-            print(f"- 最大值: {padded_decision_scores_.max():.6f}")
-            print(f"- 均值: {padded_decision_scores_.mean():.6f}")
-            print(f"- 标准差: {padded_decision_scores_.std():.6f}")
+            print(f"预测完成.") # Simplified
+            # print(f"最终输出维度: {padded_decision_scores_.shape}")
+            # print(f"输出统计:")
+            # print(f"- 最小值: {padded_decision_scores_.min():.6f}")
+            # print(f"- 最大值: {padded_decision_scores_.max():.6f}")
+            # print(f"- 均值: {padded_decision_scores_.mean():.6f}")
+            # print(f"- 标准差: {padded_decision_scores_.std():.6f}")
             
             self.__anomaly_score = padded_decision_scores_
             return padded_decision_scores_
