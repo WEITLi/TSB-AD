@@ -327,8 +327,8 @@ def run_AutoEncoder(data_train, data_test,
     clf.fit(data_train)  
     score = clf.decision_function(data_test)
     
-    model_details = {}
     if return_model_details:
+        model_details = {}
         if hasattr(clf, 'model') and isinstance(clf.model, torch.nn.Module):
             try:
                 total_params = sum(p.numel() for p in clf.model.parameters())
@@ -337,15 +337,16 @@ def run_AutoEncoder(data_train, data_test,
                 param_size_bytes = 0
                 for param in clf.model.parameters():
                     param_size_bytes += param.nelement() * param.element_size()
+                    
                 buffer_size_bytes = 0
                 for buffer in clf.model.buffers():
                     buffer_size_bytes += buffer.nelement() * buffer.element_size()
+                    
                 model_size_mb = (param_size_bytes + buffer_size_bytes) / (1024**2)
                 
                 model_details['total_params'] = total_params
                 model_details['trainable_params'] = trainable_params
                 model_details['model_size_MB'] = model_size_mb
-
             except Exception as e:
                 model_details['error'] = f"Could not get model details: {str(e)}"
                 print(f"Error getting model details for AutoEncoder: {e}")
@@ -524,8 +525,8 @@ def run_DLinear(data_train, data_test,
     clf.fit(data_train)
     score = clf.decision_function(data_test)
 
-    model_details = {}
     if return_model_details:
+        model_details = {}
         if hasattr(clf, 'model') and isinstance(clf.model, torch.nn.Module):
             try:
                 total_params = sum(p.numel() for p in clf.model.parameters())
@@ -534,15 +535,16 @@ def run_DLinear(data_train, data_test,
                 param_size_bytes = 0
                 for param in clf.model.parameters():
                     param_size_bytes += param.nelement() * param.element_size()
+                    
                 buffer_size_bytes = 0
                 for buffer in clf.model.buffers():
                     buffer_size_bytes += buffer.nelement() * buffer.element_size()
+                    
                 model_size_mb = (param_size_bytes + buffer_size_bytes) / (1024**2)
                 
                 model_details['total_params'] = total_params
                 model_details['trainable_params'] = trainable_params
                 model_details['model_size_MB'] = model_size_mb
-
             except Exception as e:
                 model_details['error'] = f"Could not get model details for DLinear: {str(e)}"
                 print(f"Error getting model details for DLinear: {e}")
