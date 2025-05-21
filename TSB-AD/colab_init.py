@@ -6,7 +6,7 @@ from pathlib import Path
 def setup_colab():
     """设置Colab环境"""
     # 检查是否在Colab环境中
-    if 'google.colab' not in sys.modules:
+    if not os.getenv('COLAB_RELEASE_TAG'):
         print("这不是Colab环境，请确保在Google Colab中运行此脚本")
         return
 
