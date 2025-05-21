@@ -1,0 +1,95 @@
+{
+    "iteration": 4,
+    "optimizer_state": {
+        "X": [
+            {
+                "window_size": 186,
+                "lr": 0.0038100516090216695,
+                "batch_size": 160,
+                "epochs": 57,
+                "pred_len": 5,
+                "validation_size": 0.10876171274937296
+            },
+            {
+                "window_size": 91,
+                "lr": 0.004937777894882173,
+                "batch_size": 92,
+                "epochs": 104,
+                "pred_len": 3,
+                "validation_size": 0.23391101281917942
+            },
+            {
+                "window_size": 161,
+                "lr": 0.0007490385024825619,
+                "batch_size": 142,
+                "epochs": 125,
+                "pred_len": 4,
+                "validation_size": 0.2998428235417137
+            },
+            {
+                "window_size": 89,
+                "lr": 0.0030724851346615135,
+                "batch_size": 215,
+                "epochs": 103,
+                "pred_len": 3,
+                "validation_size": 0.2340348593785391
+            }
+        ],
+        "y": [
+            0.007783366993765864,
+            0.012379449412640488,
+            0.007595165292195288,
+            0.012170418786515452
+        ]
+    },
+    "results": [
+        {
+            "iteration": 1,
+            "params": {
+                "window_size": 186,
+                "lr": 0.0038100516090216695,
+                "batch_size": 160,
+                "epochs": 57,
+                "pred_len": 5,
+                "validation_size": 0.10876171274937296
+            },
+            "score": 0.007783366993765864
+        },
+        {
+            "iteration": 2,
+            "params": {
+                "window_size": 91,
+                "lr": 0.004937777894882173,
+                "batch_size": 92,
+                "epochs": 104,
+                "pred_len": 3,
+                "validation_size": 0.23391101281917942
+            },
+            "score": 0.012379449412640488
+        },
+        {
+            "iteration": 3,
+            "params": {
+                "window_size": 161,
+                "lr": 0.0007490385024825619,
+                "batch_size": 142,
+                "epochs": 125,
+                "pred_len": 4,
+                "validation_size": 0.2998428235417137
+            },
+            "score": 0.007595165292195288
+        },
+        {
+            "iteration": 4,
+            "params": {
+                "window_size": 89,
+                "lr": 0.0030724851346615135,
+                "batch_size": 215,
+                "epochs": 103,
+                "pred_len": 3,
+                "validation_size": 0.2340348593785391
+            },
+            "score": 0.012170418786515452
+        }
+    ]
+}

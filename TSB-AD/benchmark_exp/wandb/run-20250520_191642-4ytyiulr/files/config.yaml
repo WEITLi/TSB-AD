@@ -1,0 +1,38 @@
+_wandb:
+    value:
+        cli_version: 0.19.11
+        m: []
+        python_version: 3.9.6
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+                - 55
+            "2":
+                - 1
+                - 5
+                - 53
+                - 55
+            "3":
+                - 2
+                - 13
+                - 16
+                - 23
+                - 55
+            "4": 3.9.6
+            "5": 0.19.11
+            "8":
+                - 5
+            "12": 0.19.11
+            "13": darwin-arm64
+algorithm:
+    value: DLinear
+n_initial_points:
+    value: 5
+n_iterations:
+    value: 20
+optimization_target:
+    value: VUS-PR
+timestamp:
+    value: "20250520_191640"

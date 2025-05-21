@@ -1,0 +1,56 @@
+{
+  "os": "macOS-14.6-arm64-arm-64bit",
+  "python": "CPython 3.9.6",
+  "startedAt": "2025-05-20T11:16:42.493203Z",
+  "args": [
+    "--AD_Name",
+    "DLinear",
+    "--dataset_dir",
+    "../Datasets/TSB-AD-M/",
+    "--file_list",
+    "../Datasets/File_List/TSB-AD-M-Tuning.csv",
+    "--n_iterations",
+    "20",
+    "--n_initial_points",
+    "5"
+  ],
+  "program": "/Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/HP_Tuning_Bayesian.py",
+  "codePath": "benchmark_exp/HP_Tuning_Bayesian.py",
+  "git": {
+    "remote": "https://github.com/TheDatumOrg/TSB-AD.git",
+    "commit": "73b82f8ef130787e73f6cfc44c73027059c5b002"
+  },
+  "email": "835605258@qq.com",
+  "root": "/Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp",
+  "host": "liweitaodeMacBook-Air.local",
+  "executable": "/Users/weitao_li/CodeField/DCAI/.venv/bin/python",
+  "codePathLocal": "HP_Tuning_Bayesian.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "245107195904",
+      "used": "186930774016"
+    },
+    "/System/Volumes/Data": {
+      "total": "245107195904",
+      "used": "186930774016"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 8
+  },
+  "apple": {
+    "name": "Apple M3",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "7516192768",
+    "ramTotalBytes": "17179869184"
+  }
+}

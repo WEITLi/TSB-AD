@@ -1,0 +1,6 @@
+iteration,params,score
+1,"{'window_size': 186, 'lr': 0.0038100516090216695, 'batch_size': 160, 'epochs': 57, 'pred_len': 5, 'validation_size': 0.10876171274937296}",0.007783366993765864
+2,"{'window_size': 91, 'lr': 0.004937777894882173, 'batch_size': 92, 'epochs': 104, 'pred_len': 3, 'validation_size': 0.23391101281917942}",0.012379449412640488
+3,"{'window_size': 161, 'lr': 0.0007490385024825619, 'batch_size': 142, 'epochs': 125, 'pred_len': 4, 'validation_size': 0.2998428235417137}",0.007595165292195288
+4,"{'window_size': 89, 'lr': 0.0030724851346615135, 'batch_size': 215, 'epochs': 103, 'pred_len': 3, 'validation_size': 0.2340348593785391}",0.012170418786515452
+5,"{'window_size': 81, 'lr': 0.0019482690570069745, 'batch_size': 59, 'epochs': 116, 'pred_len': 4, 'validation_size': 0.15643302388872865}",0.0076490244708540475

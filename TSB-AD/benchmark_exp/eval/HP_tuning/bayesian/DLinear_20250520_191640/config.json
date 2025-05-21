@@ -1,0 +1,12 @@
+{
+    "dataset_dir": "../Datasets/TSB-AD-M/",
+    "file_list": "../Datasets/File_List/TSB-AD-M-Tuning.csv",
+    "dataset": null,
+    "save_dir": "eval/HP_tuning/bayesian/",
+    "AD_Name": "DLinear",
+    "n_iterations": 20,
+    "n_initial_points": 5,
+    "resume": null,
+    "timestamp": "20250520_191640",
+    "seed": 2024
+}

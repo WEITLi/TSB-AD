@@ -1,0 +1,32 @@
+{
+    "iteration": 1,
+    "optimizer_state": {
+        "X": [
+            {
+                "window_size": 186,
+                "lr": 0.0038100516090216695,
+                "batch_size": 160,
+                "epochs": 57,
+                "pred_len": 5,
+                "validation_size": 0.10876171274937296
+            }
+        ],
+        "y": [
+            0.007783366993765864
+        ]
+    },
+    "results": [
+        {
+            "iteration": 1,
+            "params": {
+                "window_size": 186,
+                "lr": 0.0038100516090216695,
+                "batch_size": 160,
+                "epochs": 57,
+                "pred_len": 5,
+                "validation_size": 0.10876171274937296
+            },
+            "score": 0.007783366993765864
+        }
+    ]
+}

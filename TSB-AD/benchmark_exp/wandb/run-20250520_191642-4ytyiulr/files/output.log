@@ -1,0 +1,380 @@
+
+迭代 1/20
+建议的参数: {'window_size': 186, 'lr': 0.0038100516090216695, 'batch_size': 160, 'epochs': 57, 'pred_len': 5, 'validation_size': 0.10876171274937296}
+处理数据集: 004_MSL_id_3_Sensor_tr_530_1st_630.csv
+处理数据集 004_MSL_id_3_Sensor_tr_530_1st_630.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/004_MSL_id_3_Sensor_tr_530_1st_630.csv'
+处理数据集: 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv
+处理数据集 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/011_MSL_id_10_Sensor_tr_1525_1st_4590.csv'
+处理数据集: 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv
+处理数据集 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/023_MITDB_id_5_Medical_tr_25000_1st_36913.csv'
+处理数据集: 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv
+处理数据集 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/028_MITDB_id_10_Medical_tr_37500_1st_39948.csv'
+处理数据集: 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv
+处理数据集 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/040_GHL_id_9_Sensor_tr_50000_1st_92001.csv'
+处理数据集: 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv
+处理数据集 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/049_GHL_id_18_Sensor_tr_50000_1st_109001.csv'
+处理数据集: 062_SMD_id_6_Facility_tr_7180_1st_15131.csv
+处理数据集 062_SMD_id_6_Facility_tr_7180_1st_15131.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/062_SMD_id_6_Facility_tr_7180_1st_15131.csv'
+处理数据集: 072_SMD_id_16_Facility_tr_7119_1st_15849.csv
+处理数据集 072_SMD_id_16_Facility_tr_7119_1st_15849.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/072_SMD_id_16_Facility_tr_7119_1st_15849.csv'
+处理数据集: 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv
+处理数据集 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/082_LTDB_id_4_Medical_tr_4456_1st_4556.csv'
+处理数据集: 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv
+处理数据集 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/090_SVDB_id_7_Medical_tr_12157_1st_12257.csv'
+处理数据集: 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv
+处理数据集 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/107_SVDB_id_24_Medical_tr_32805_1st_32905.csv'
+处理数据集: 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv
+处理数据集 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/113_SVDB_id_30_Medical_tr_4552_1st_4652.csv'
+处理数据集: 120_TAO_id_5_Environment_tr_500_1st_3.csv
+处理数据集 120_TAO_id_5_Environment_tr_500_1st_3.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/120_TAO_id_5_Environment_tr_500_1st_3.csv'
+处理数据集: 126_TAO_id_11_Environment_tr_500_1st_7.csv
+处理数据集 126_TAO_id_11_Environment_tr_500_1st_7.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/126_TAO_id_11_Environment_tr_500_1st_7.csv'
+处理数据集: 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv
+处理数据集 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv'
+处理数据集: 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv
+处理数据集 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv'
+处理数据集: 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv
+处理数据集 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv'
+处理数据集: 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv
+处理数据集 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv'
+处理数据集: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv
+--- Debug: Trying to run semi-supervised model: DLinear
+--- Debug: Looking for function: run_DLinear
+--- Debug: Found function: <function run_DLinear at 0x17e353b80>
+----- GPU is unavailable -----
+----- Using CPU -----
+初始化 DLinear 模型:
+- 窗口大小: 186
+- 特征数: 19
+- 预测长度: 5
+- 批次大小: 160
+
+开始训练:
+输入数据维度: (12538, 19)
+实际使用的batch size: 160
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 3 out of 3
+Early stopping triggered
+
+开始预测:
+输入数据维度: (129197, 19)
+实际使用的batch size: 160
+最终输出维度: (129197,)
+/Users/weitao_li/CodeField/DCAI/.venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+处理数据集: 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv
+处理数据集 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv'
+平均VUS-PR分数: 0.007783366993765864
+
+迭代 2/20
+建议的参数: {'window_size': 91, 'lr': 0.004937777894882173, 'batch_size': 92, 'epochs': 104, 'pred_len': 3, 'validation_size': 0.23391101281917942}
+处理数据集: 004_MSL_id_3_Sensor_tr_530_1st_630.csv
+处理数据集 004_MSL_id_3_Sensor_tr_530_1st_630.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/004_MSL_id_3_Sensor_tr_530_1st_630.csv'
+处理数据集: 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv
+处理数据集 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/011_MSL_id_10_Sensor_tr_1525_1st_4590.csv'
+处理数据集: 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv
+处理数据集 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/023_MITDB_id_5_Medical_tr_25000_1st_36913.csv'
+处理数据集: 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv
+处理数据集 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/028_MITDB_id_10_Medical_tr_37500_1st_39948.csv'
+处理数据集: 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv
+处理数据集 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/040_GHL_id_9_Sensor_tr_50000_1st_92001.csv'
+处理数据集: 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv
+处理数据集 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/049_GHL_id_18_Sensor_tr_50000_1st_109001.csv'
+处理数据集: 062_SMD_id_6_Facility_tr_7180_1st_15131.csv
+处理数据集 062_SMD_id_6_Facility_tr_7180_1st_15131.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/062_SMD_id_6_Facility_tr_7180_1st_15131.csv'
+处理数据集: 072_SMD_id_16_Facility_tr_7119_1st_15849.csv
+处理数据集 072_SMD_id_16_Facility_tr_7119_1st_15849.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/072_SMD_id_16_Facility_tr_7119_1st_15849.csv'
+处理数据集: 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv
+处理数据集 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/082_LTDB_id_4_Medical_tr_4456_1st_4556.csv'
+处理数据集: 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv
+处理数据集 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/090_SVDB_id_7_Medical_tr_12157_1st_12257.csv'
+处理数据集: 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv
+处理数据集 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/107_SVDB_id_24_Medical_tr_32805_1st_32905.csv'
+处理数据集: 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv
+处理数据集 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/113_SVDB_id_30_Medical_tr_4552_1st_4652.csv'
+处理数据集: 120_TAO_id_5_Environment_tr_500_1st_3.csv
+处理数据集 120_TAO_id_5_Environment_tr_500_1st_3.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/120_TAO_id_5_Environment_tr_500_1st_3.csv'
+处理数据集: 126_TAO_id_11_Environment_tr_500_1st_7.csv
+处理数据集 126_TAO_id_11_Environment_tr_500_1st_7.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/126_TAO_id_11_Environment_tr_500_1st_7.csv'
+处理数据集: 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv
+处理数据集 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv'
+处理数据集: 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv
+处理数据集 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv'
+处理数据集: 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv
+处理数据集 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv'
+处理数据集: 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv
+处理数据集 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv'
+处理数据集: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv
+--- Debug: Trying to run semi-supervised model: DLinear
+--- Debug: Looking for function: run_DLinear
+--- Debug: Found function: <function run_DLinear at 0x17e353b80>
+----- GPU is unavailable -----
+----- Using CPU -----
+初始化 DLinear 模型:
+- 窗口大小: 91
+- 特征数: 19
+- 预测长度: 3
+- 批次大小: 92
+
+开始训练:
+输入数据维度: (12538, 19)
+实际使用的batch size: 92
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 3 out of 3
+Early stopping triggered
+
+开始预测:
+输入数据维度: (129197, 19)
+实际使用的batch size: 92
+最终输出维度: (129197,)
+/Users/weitao_li/CodeField/DCAI/.venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+处理数据集: 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv
+处理数据集 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv'
+平均VUS-PR分数: 0.012379449412640488
+
+迭代 3/20
+建议的参数: {'window_size': 161, 'lr': 0.0007490385024825619, 'batch_size': 142, 'epochs': 125, 'pred_len': 4, 'validation_size': 0.2998428235417137}
+处理数据集: 004_MSL_id_3_Sensor_tr_530_1st_630.csv
+处理数据集 004_MSL_id_3_Sensor_tr_530_1st_630.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/004_MSL_id_3_Sensor_tr_530_1st_630.csv'
+处理数据集: 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv
+处理数据集 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/011_MSL_id_10_Sensor_tr_1525_1st_4590.csv'
+处理数据集: 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv
+处理数据集 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/023_MITDB_id_5_Medical_tr_25000_1st_36913.csv'
+处理数据集: 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv
+处理数据集 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/028_MITDB_id_10_Medical_tr_37500_1st_39948.csv'
+处理数据集: 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv
+处理数据集 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/040_GHL_id_9_Sensor_tr_50000_1st_92001.csv'
+处理数据集: 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv
+处理数据集 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/049_GHL_id_18_Sensor_tr_50000_1st_109001.csv'
+处理数据集: 062_SMD_id_6_Facility_tr_7180_1st_15131.csv
+处理数据集 062_SMD_id_6_Facility_tr_7180_1st_15131.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/062_SMD_id_6_Facility_tr_7180_1st_15131.csv'
+处理数据集: 072_SMD_id_16_Facility_tr_7119_1st_15849.csv
+处理数据集 072_SMD_id_16_Facility_tr_7119_1st_15849.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/072_SMD_id_16_Facility_tr_7119_1st_15849.csv'
+处理数据集: 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv
+处理数据集 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/082_LTDB_id_4_Medical_tr_4456_1st_4556.csv'
+处理数据集: 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv
+处理数据集 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/090_SVDB_id_7_Medical_tr_12157_1st_12257.csv'
+处理数据集: 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv
+处理数据集 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/107_SVDB_id_24_Medical_tr_32805_1st_32905.csv'
+处理数据集: 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv
+处理数据集 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/113_SVDB_id_30_Medical_tr_4552_1st_4652.csv'
+处理数据集: 120_TAO_id_5_Environment_tr_500_1st_3.csv
+处理数据集 120_TAO_id_5_Environment_tr_500_1st_3.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/120_TAO_id_5_Environment_tr_500_1st_3.csv'
+处理数据集: 126_TAO_id_11_Environment_tr_500_1st_7.csv
+处理数据集 126_TAO_id_11_Environment_tr_500_1st_7.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/126_TAO_id_11_Environment_tr_500_1st_7.csv'
+处理数据集: 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv
+处理数据集 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv'
+处理数据集: 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv
+处理数据集 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv'
+处理数据集: 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv
+处理数据集 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv'
+处理数据集: 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv
+处理数据集 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv'
+处理数据集: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv
+--- Debug: Trying to run semi-supervised model: DLinear
+--- Debug: Looking for function: run_DLinear
+--- Debug: Found function: <function run_DLinear at 0x17e353b80>
+----- GPU is unavailable -----
+----- Using CPU -----
+初始化 DLinear 模型:
+- 窗口大小: 161
+- 特征数: 19
+- 预测长度: 4
+- 批次大小: 142
+
+开始训练:
+输入数据维度: (12538, 19)
+实际使用的batch size: 142
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 3 out of 3
+Early stopping triggered
+
+开始预测:
+输入数据维度: (129197, 19)
+实际使用的batch size: 142
+最终输出维度: (129197,)
+/Users/weitao_li/CodeField/DCAI/.venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+处理数据集: 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv
+处理数据集 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv'
+平均VUS-PR分数: 0.007595165292195288
+
+迭代 4/20
+建议的参数: {'window_size': 89, 'lr': 0.0030724851346615135, 'batch_size': 215, 'epochs': 103, 'pred_len': 3, 'validation_size': 0.2340348593785391}
+处理数据集: 004_MSL_id_3_Sensor_tr_530_1st_630.csv
+处理数据集 004_MSL_id_3_Sensor_tr_530_1st_630.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/004_MSL_id_3_Sensor_tr_530_1st_630.csv'
+处理数据集: 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv
+处理数据集 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/011_MSL_id_10_Sensor_tr_1525_1st_4590.csv'
+处理数据集: 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv
+处理数据集 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/023_MITDB_id_5_Medical_tr_25000_1st_36913.csv'
+处理数据集: 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv
+处理数据集 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/028_MITDB_id_10_Medical_tr_37500_1st_39948.csv'
+处理数据集: 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv
+处理数据集 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/040_GHL_id_9_Sensor_tr_50000_1st_92001.csv'
+处理数据集: 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv
+处理数据集 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/049_GHL_id_18_Sensor_tr_50000_1st_109001.csv'
+处理数据集: 062_SMD_id_6_Facility_tr_7180_1st_15131.csv
+处理数据集 062_SMD_id_6_Facility_tr_7180_1st_15131.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/062_SMD_id_6_Facility_tr_7180_1st_15131.csv'
+处理数据集: 072_SMD_id_16_Facility_tr_7119_1st_15849.csv
+处理数据集 072_SMD_id_16_Facility_tr_7119_1st_15849.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/072_SMD_id_16_Facility_tr_7119_1st_15849.csv'
+处理数据集: 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv
+处理数据集 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/082_LTDB_id_4_Medical_tr_4456_1st_4556.csv'
+处理数据集: 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv
+处理数据集 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/090_SVDB_id_7_Medical_tr_12157_1st_12257.csv'
+处理数据集: 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv
+处理数据集 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/107_SVDB_id_24_Medical_tr_32805_1st_32905.csv'
+处理数据集: 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv
+处理数据集 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/113_SVDB_id_30_Medical_tr_4552_1st_4652.csv'
+处理数据集: 120_TAO_id_5_Environment_tr_500_1st_3.csv
+处理数据集 120_TAO_id_5_Environment_tr_500_1st_3.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/120_TAO_id_5_Environment_tr_500_1st_3.csv'
+处理数据集: 126_TAO_id_11_Environment_tr_500_1st_7.csv
+处理数据集 126_TAO_id_11_Environment_tr_500_1st_7.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/126_TAO_id_11_Environment_tr_500_1st_7.csv'
+处理数据集: 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv
+处理数据集 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv'
+处理数据集: 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv
+处理数据集 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv'
+处理数据集: 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv
+处理数据集 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv'
+处理数据集: 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv
+处理数据集 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv'
+处理数据集: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv
+--- Debug: Trying to run semi-supervised model: DLinear
+--- Debug: Looking for function: run_DLinear
+--- Debug: Found function: <function run_DLinear at 0x17e353b80>
+----- GPU is unavailable -----
+----- Using CPU -----
+初始化 DLinear 模型:
+- 窗口大小: 89
+- 特征数: 19
+- 预测长度: 3
+- 批次大小: 215
+
+开始训练:
+输入数据维度: (12538, 19)
+实际使用的batch size: 215
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 3 out of 3
+Early stopping triggered
+
+开始预测:
+输入数据维度: (129197, 19)
+实际使用的batch size: 215
+最终输出维度: (129197,)
+/Users/weitao_li/CodeField/DCAI/.venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+处理数据集: 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv
+处理数据集 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv'
+平均VUS-PR分数: 0.012170418786515452
+
+迭代 5/20
+建议的参数: {'window_size': 81, 'lr': 0.0019482690570069745, 'batch_size': 59, 'epochs': 116, 'pred_len': 4, 'validation_size': 0.15643302388872865}
+处理数据集: 004_MSL_id_3_Sensor_tr_530_1st_630.csv
+处理数据集 004_MSL_id_3_Sensor_tr_530_1st_630.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/004_MSL_id_3_Sensor_tr_530_1st_630.csv'
+处理数据集: 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv
+处理数据集 011_MSL_id_10_Sensor_tr_1525_1st_4590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/011_MSL_id_10_Sensor_tr_1525_1st_4590.csv'
+处理数据集: 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv
+处理数据集 023_MITDB_id_5_Medical_tr_25000_1st_36913.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/023_MITDB_id_5_Medical_tr_25000_1st_36913.csv'
+处理数据集: 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv
+处理数据集 028_MITDB_id_10_Medical_tr_37500_1st_39948.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/028_MITDB_id_10_Medical_tr_37500_1st_39948.csv'
+处理数据集: 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv
+处理数据集 040_GHL_id_9_Sensor_tr_50000_1st_92001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/040_GHL_id_9_Sensor_tr_50000_1st_92001.csv'
+处理数据集: 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv
+处理数据集 049_GHL_id_18_Sensor_tr_50000_1st_109001.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/049_GHL_id_18_Sensor_tr_50000_1st_109001.csv'
+处理数据集: 062_SMD_id_6_Facility_tr_7180_1st_15131.csv
+处理数据集 062_SMD_id_6_Facility_tr_7180_1st_15131.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/062_SMD_id_6_Facility_tr_7180_1st_15131.csv'
+处理数据集: 072_SMD_id_16_Facility_tr_7119_1st_15849.csv
+处理数据集 072_SMD_id_16_Facility_tr_7119_1st_15849.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/072_SMD_id_16_Facility_tr_7119_1st_15849.csv'
+处理数据集: 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv
+处理数据集 082_LTDB_id_4_Medical_tr_4456_1st_4556.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/082_LTDB_id_4_Medical_tr_4456_1st_4556.csv'
+处理数据集: 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv
+处理数据集 090_SVDB_id_7_Medical_tr_12157_1st_12257.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/090_SVDB_id_7_Medical_tr_12157_1st_12257.csv'
+处理数据集: 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv
+处理数据集 107_SVDB_id_24_Medical_tr_32805_1st_32905.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/107_SVDB_id_24_Medical_tr_32805_1st_32905.csv'
+处理数据集: 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv
+处理数据集 113_SVDB_id_30_Medical_tr_4552_1st_4652.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/113_SVDB_id_30_Medical_tr_4552_1st_4652.csv'
+处理数据集: 120_TAO_id_5_Environment_tr_500_1st_3.csv
+处理数据集 120_TAO_id_5_Environment_tr_500_1st_3.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/120_TAO_id_5_Environment_tr_500_1st_3.csv'
+处理数据集: 126_TAO_id_11_Environment_tr_500_1st_7.csv
+处理数据集 126_TAO_id_11_Environment_tr_500_1st_7.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/126_TAO_id_11_Environment_tr_500_1st_7.csv'
+处理数据集: 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv
+处理数据集 131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/131_OPPORTUNITY_id_3_HumanActivity_tr_7016_1st_26691.csv'
+处理数据集: 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv
+处理数据集 140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/140_CATSv2_id_3_Sensor_tr_28307_1st_28407.csv'
+处理数据集: 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv
+处理数据集 149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/149_SMAP_id_6_Sensor_tr_2128_1st_5000.csv'
+处理数据集: 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv
+处理数据集 164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/164_SMAP_id_21_Sensor_tr_1976_1st_4200.csv'
+处理数据集: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv
+--- Debug: Trying to run semi-supervised model: DLinear
+--- Debug: Looking for function: run_DLinear
+--- Debug: Found function: <function run_DLinear at 0x17e353b80>
+----- GPU is unavailable -----
+----- Using CPU -----
+初始化 DLinear 模型:
+- 窗口大小: 81
+- 特征数: 19
+- 预测长度: 4
+- 批次大小: 59
+
+开始训练:
+输入数据维度: (12538, 19)
+实际使用的batch size: 59
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 1 out of 3
+EarlyStopping counter: 2 out of 3
+EarlyStopping counter: 3 out of 3
+Early stopping triggered
+
+开始预测:
+输入数据维度: (129197, 19)
+实际使用的batch size: 59
+最终输出维度: (129197,)
+/Users/weitao_li/CodeField/DCAI/.venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+处理数据集: 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv
+处理数据集 195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv 时出错: [Errno 2] No such file or directory: '../Datasets/TSB-AD-M/195_Exathlon_id_22_Facility_tr_10766_1st_12590.csv'
+平均VUS-PR分数: 0.0076490244708540475
+
+迭代 6/20
+优化过程出错: Found array with dim 3. GaussianProcessRegressor expected <= 2.
