@@ -11,7 +11,7 @@ def initialize_colab_environment():
     # 1. 确定并切换到项目根目录
     #    Google Drive挂载应在此脚本运行前完成。
     #    确保此路径与你在Google Drive中的实际项目路径完全一致。
-    EXPECTED_PROJECT_ROOT = "/content/drive/MyDrive/TSB-AD/TSB-AD"
+    EXPECTED_PROJECT_ROOT = "/content/TSB-AD/TSB-AD"
     ENV_FILE_NAME = "environment.yml"
 
     print(f"期望的项目根目录: {EXPECTED_PROJECT_ROOT}")
