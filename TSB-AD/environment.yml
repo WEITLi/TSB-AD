@@ -11,9 +11,9 @@ dependencies:
   - matplotlib>=3.8.0
   - seaborn>=0.12.2
   - networkx>=3.2
-  - pytorch::pytorch=2.6.0
-  - pytorch::torchvision=0.21.0
-  - pytorch::torchaudio=2.6.0
+  - pytorch::pytorch
+  - pytorch::torchvision
+  - pytorch::torchaudio
   - pip
   - pip:
     - transformers>=4.41.0
