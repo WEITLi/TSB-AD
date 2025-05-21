@@ -1,57 +1,70 @@
 import numpy as np
 import math
 from .utils.slidingWindows import find_length_rank
+import torch
+import torchinfo
 
 Unsupervise_AD_Pool = ['FFT', 'SR', 'NORMA', 'Series2Graph', 'Sub_IForest', 'IForest', 'LOF', 'Sub_LOF', 'POLY', 'MatrixProfile', 'Sub_PCA', 'PCA', 'HBOS', 
                         'Sub_HBOS', 'KNN', 'Sub_KNN','KMeansAD', 'KMeansAD_U', 'KShapeAD', 'COPOD', 'CBLOF', 'COF', 'EIF', 'RobustPCA', 'Lag_Llama', 'TimesFM', 'Chronos', 'MOMENT_ZS', 'DBSCAN']
 Semisupervise_AD_Pool = ['Left_STAMPi', 'SAND', 'MCD', 'Sub_MCD', 'OCSVM', 'Sub_OCSVM', 'AutoEncoder', 'CNN', 'LSTMAD', 'TranAD', 'USAD', 'OmniAnomaly', 
                         'AnomalyTransformer', 'TimesNet', 'FITS', 'Donut', 'OFA', 'MOMENT_FT', 'M2N2', 'TCN', 'DTAAD', 'DLinear', 'BRITS', 'CSDI','SAITS']
 
-def run_Unsupervise_AD(model_name, data, **kwargs):
+def run_Unsupervise_AD(model_name, data, return_model_details=False, **kwargs):
     try:
         function_name = f'run_{model_name}'
         function_to_call = globals()[function_name]
-        results = function_to_call(data, **kwargs)
-        return results
+        if return_model_details:
+            results_tuple = function_to_call(data, return_model_details=True, **kwargs)
+            if isinstance(results_tuple, tuple) and len(results_tuple) == 2:
+                return results_tuple
+            else:
+                return results_tuple, None
+        else:
+            return function_to_call(data, return_model_details=False, **kwargs)
+            
     except KeyError:
         error_message = f"Model function '{function_name}' is not defined."
         print(error_message)
-        return error_message
+        return (error_message, {"error": error_message}) if return_model_details else error_message
     except Exception as e:
         error_message = f"An error occurred while running the model '{function_name}': {str(e)}"
         print(error_message)
-        return error_message
+        return (error_message, {"error": error_message}) if return_model_details else error_message
 
 
-def run_Semisupervise_AD(model_name, data_train, data_test, **kwargs):
-    print(f"--- Debug: Trying to run semi-supervised model: {model_name}") # 调试信息
-    # print(f"--- Debug: Globals keys in model_wrapper: {list(globals().keys())}") # 打印全局键 (可能会很长，暂时注释掉)
+def run_Semisupervise_AD(model_name, data_train, data_test, return_model_details=False, **kwargs):
+    print(f"--- Debug: Trying to run semi-supervised model: {model_name}")
     try:
         function_name = f'run_{model_name}'
-        print(f"--- Debug: Looking for function: {function_name}") # 调试信息
-        # 显式检查 key 是否存在
+        print(f"--- Debug: Looking for function: {function_name}")
         if function_name not in globals():
              print(f"--- Debug: Function '{function_name}' NOT FOUND in globals()!")
-             # 打印所有 run_ 开头的函数帮助诊断
              run_functions = sorted([k for k in globals().keys() if k.startswith('run_')])
              print(f"--- Debug: Available run_ functions found in globals():\n{run_functions}")
-             raise KeyError(f"Function {function_name} not found.") # 手动抛出 KeyError
+             error_message = f"Function {function_name} not found."
+             raise KeyError(error_message)
         
         function_to_call = globals()[function_name]
-        print(f"--- Debug: Found function: {function_to_call}") # 调试信息
-        results = function_to_call(data_train, data_test, **kwargs)
-        return results
-    except KeyError:
-        # 这部分理论上不应该执行了，因为上面已经做了检查，但保留以防万一
-        error_message = f"Model function '{function_name}' is not defined (Caught in except block)."
+        print(f"--- Debug: Found function: {function_to_call}")
+        
+        if return_model_details:
+            results_tuple = function_to_call(data_train, data_test, return_model_details=True, **kwargs)
+            if isinstance(results_tuple, tuple) and len(results_tuple) == 2:
+                return results_tuple
+            else:
+                print(f"Warning: {function_name} did not return a (scores, details) tuple when return_model_details=True.")
+                return results_tuple, None
+        else:
+            return function_to_call(data_train, data_test, return_model_details=False, **kwargs)
+
+    except KeyError as e:
+        error_message = str(e)
         print(error_message)
-        run_functions = sorted([k for k in globals().keys() if k.startswith('run_')])
-        print(f"--- Debug: Available run_ functions in except block: {run_functions}")
-        return error_message
+        return (error_message, {"error": error_message}) if return_model_details else error_message
     except Exception as e:
         error_message = f"An error occurred while running the model '{function_name}': {str(e)}"
         print(error_message)
-        return error_message
+        return (error_message, {"error": error_message}) if return_model_details else error_message
 
 def run_FFT(data, ifft_parameters=5, local_neighbor_window=21, local_outlier_threshold=0.6, max_region_size=50, max_sign_change_distance=10):
     from .models.FFT import FFT
@@ -68,12 +81,22 @@ def run_Sub_IForest(data, periodicity=1, n_estimators=100, max_features=1, n_job
     score = clf.decision_scores_
     return score.ravel()
 
-def run_IForest(data, slidingWindow=100, n_estimators=100, max_features=1, n_jobs=1):
+def run_IForest(data, slidingWindow=100, n_estimators=100, max_features=1, return_model_details=False, n_jobs=1):
     from .models.IForest import IForest
     clf = IForest(slidingWindow=slidingWindow, n_estimators=n_estimators, max_features=max_features, n_jobs=n_jobs)
     clf.fit(data)
     score = clf.decision_scores_
-    return score.ravel()
+    
+    if return_model_details:
+        model_details = {
+            'total_params': n_estimators,
+            'trainable_params': None,
+            'model_size_MB': None,
+            'notes': 'For IForest, total_params refers to n_estimators. Model size in MB is not directly applicable.'
+        }
+        return score.ravel(), model_details
+    else:
+        return score.ravel()
 
 def run_Sub_LOF(data, periodicity=1, n_neighbors=30, metric='minkowski', n_jobs=1):
     from .models.LOF import LOF
@@ -283,12 +306,68 @@ def run_SR(data, periodicity=1):
     slidingWindow = find_length_rank(data, rank=periodicity)
     return SR(data, window_size=slidingWindow)
 
-def run_AutoEncoder(data_train, data_test, window_size=100, hidden_neurons=[64, 32], n_jobs=1):
-    from .models.AE import AutoEncoder
-    clf = AutoEncoder(slidingWindow=window_size, hidden_neurons=hidden_neurons, batch_size=128, epochs=50)
-    clf.fit(data_train)
+def run_AutoEncoder(data_train, data_test, 
+                    window_size=100, hidden_neurons=[64, 32], 
+                    lr=1e-3, epochs=50, batch_size=128, validation_size=0.2,
+                    return_model_details=False, n_jobs=1):
+    from .models.autoencoder import AutoEncoder 
+    
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    feats_train = data_train.shape[1] if len(data_train.shape) > 1 else 1
+    
+    clf = AutoEncoder(window_size=window_size,
+                      hidden_neurons=hidden_neurons,
+                      lr=lr,
+                      epochs=epochs,
+                      batch_size=batch_size,
+                      validation_size=validation_size,
+                      device=device,
+                      feats=feats_train
+                      )
+    clf.fit(data_train)  
     score = clf.decision_function(data_test)
-    return score.ravel()
+    
+    model_details = {}
+    if return_model_details:
+        if hasattr(clf, 'model') and isinstance(clf.model, torch.nn.Module):
+            try:
+                feats_for_summary = data_test.shape[1] if len(data_test.shape) > 1 else 1
+                example_input_shape = (1, window_size, feats_for_summary) 
+
+                summary = torchinfo.summary(clf.model,
+                                            input_size=example_input_shape,
+                                            verbose=0,
+                                            device=device,
+                                            col_names = ("input_size", "output_size", "num_params", "mult_adds"))
+                
+                model_details['total_params'] = summary.total_params
+                model_details['trainable_params'] = summary.trainable_params
+                
+                param_size_bytes = 0
+                for param in clf.model.parameters():
+                    param_size_bytes += param.nelement() * param.element_size()
+                buffer_size_bytes = 0
+                for buffer in clf.model.buffers():
+                    buffer_size_bytes += buffer.nelement() * buffer.element_size()
+                model_details['model_size_MB'] = (param_size_bytes + buffer_size_bytes) / (1024**2)
+                model_details['torchinfo_summary'] = str(summary)
+
+            except Exception as e:
+                model_details['error'] = f"Could not get model details using torchinfo: {str(e)}"
+                print(f"Error getting model details for AutoEncoder: {e}")
+                model_details.setdefault('total_params', None)
+                model_details.setdefault('trainable_params', None)
+                model_details.setdefault('model_size_MB', None)
+        else:
+            model_details['error'] = "Model instance 'clf.model' not found or not a torch.nn.Module for AutoEncoder."
+            model_details['total_params'] = None
+            model_details['trainable_params'] = None
+            model_details['model_size_MB'] = None
+            
+        return score.ravel(), model_details
+    else:
+        return score.ravel()
 
 def run_CNN(data_train, data_test, window_size=100, num_channel=[32, 32, 40], lr=0.0008, n_jobs=1):
     from .models.CNN import CNN
@@ -385,7 +464,6 @@ def run_MOMENT_ZS(data, win_size=256):
     from .models.MOMENT import MOMENT
     clf = MOMENT(win_size=win_size, input_c=data.shape[1])
 
-    # Zero shot
     clf.zero_shot(data)
     score = clf.decision_scores_
     return score.ravel()
@@ -394,7 +472,6 @@ def run_MOMENT_FT(data_train, data_test, win_size=256):
     from .models.MOMENT import MOMENT
     clf = MOMENT(win_size=win_size, input_c=data_test.shape[1])
 
-    # Finetune
     clf.fit(data_train)
     score = clf.decision_function(data_test)
     return score.ravel()
@@ -434,29 +511,90 @@ def run_DTAAD(data_train, data_test, win_size=10, lr=1e-3, batch_size=128, epoch
     score = clf.decision_function(data_test)
     return score.ravel()
 
-def run_DLinear(data_train, data_test, window_size=100, lr=1e-3, batch_size=128, epochs=50, pred_len=1, validation_size=0.2):
+def run_DLinear(data_train, data_test, 
+                window_size=100, lr=1e-3, batch_size=128, epochs=50, 
+                pred_len=1, validation_size=0.2, 
+                return_model_details=False, n_jobs=1):
     from .models.DLinear import DLinear
-    clf = DLinear(window_size=window_size, lr=lr, batch_size=batch_size, epochs=epochs, 
-                  pred_len=pred_len, validation_size=validation_size, feats=data_test.shape[1])
+    
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    feats_train = data_train.shape[1] if len(data_train.shape) > 1 else 1
+
+    clf = DLinear(window_size=window_size, 
+                  lr=lr, 
+                  batch_size=batch_size, 
+                  epochs=epochs, 
+                  pred_len=pred_len, 
+                  validation_size=validation_size, 
+                  feats=feats_train,
+                  device=device)
     clf.fit(data_train)
     score = clf.decision_function(data_test)
-    return score.ravel()
 
-def run_DBSCAN(data, eps=0.5, min_samples=5, metric='euclidean', algorithm='auto', leaf_size=30):
-    try:
-        print(f"Running DBSCAN with parameters: eps={eps}, min_samples={min_samples}, metric={metric}, algorithm={algorithm}, leaf_size={leaf_size}")
-        print(f"Input data shape: {data.shape}")
-        
-        from .models.DBSCAN import DBSCAN_AD
-        clf = DBSCAN_AD(eps=eps, min_samples=min_samples, metric=metric, algorithm=algorithm, leaf_size=leaf_size)
-        clf.fit(data)
-        score = clf.decision_scores_()
-        
-        print(f"DBSCAN completed successfully. Score shape: {score.shape}")
+    model_details = {}
+    if return_model_details:
+        if hasattr(clf, 'model') and isinstance(clf.model, torch.nn.Module):
+            try:
+                feats_for_summary = data_test.shape[1] if len(data_test.shape) > 1 else 1
+                example_input_shape = (1, window_size, feats_for_summary)
+                
+                summary = torchinfo.summary(clf.model, 
+                                            input_size=example_input_shape, 
+                                            verbose=0, 
+                                            device=device,
+                                            col_names = ("input_size", "output_size", "num_params", "mult_adds"))
+                                            
+                model_details['total_params'] = summary.total_params
+                model_details['trainable_params'] = summary.trainable_params
+                
+                param_size_bytes = 0
+                for param in clf.model.parameters():
+                    param_size_bytes += param.nelement() * param.element_size()
+                buffer_size_bytes = 0
+                for buffer in clf.model.buffers():
+                    buffer_size_bytes += buffer.nelement() * buffer.element_size()
+                model_details['model_size_MB'] = (param_size_bytes + buffer_size_bytes) / (1024**2)
+                model_details['torchinfo_summary'] = str(summary)
+
+            except Exception as e:
+                model_details['error'] = f"Could not get model details for DLinear: {str(e)}"
+                print(f"Error getting model details for DLinear: {e}")
+                model_details.setdefault('total_params', None)
+                model_details.setdefault('trainable_params', None)
+                model_details.setdefault('model_size_MB', None)
+        else:
+            model_details['error'] = "Model instance 'clf.model' not found or not a torch.nn.Module for DLinear."
+            model_details['total_params'] = None
+            model_details['trainable_params'] = None
+            model_details['model_size_MB'] = None
+            
+        return score.ravel(), model_details
+    else:
         return score.ravel()
+
+def run_DBSCAN(data, eps=0.5, min_samples=5, metric='euclidean', algorithm='auto', leaf_size=30, return_model_details=False, n_jobs=1):
+    try:
+        from .models.DBSCAN import DBSCAN_AD
+        clf = DBSCAN_AD(eps=eps, min_samples=min_samples, metric=metric, algorithm=algorithm, leaf_size=leaf_size, n_jobs=n_jobs)
+        clf.fit(data)
+        score = clf.decision_scores_ 
+        
+        if return_model_details:
+            model_details = {
+                'total_params': None,
+                'trainable_params': None,
+                'model_size_MB': None,
+                'notes': f'DBSCAN parameters: eps={eps}, min_samples={min_samples}. Model size not quantifiable like NNs.'
+            }
+            return score.ravel(), model_details
+        else:
+            return score.ravel()
     except Exception as e:
         print(f"Error in run_DBSCAN: {str(e)}")
-        raise
+        if return_model_details:
+            return str(e), {"error": f"Error in run_DBSCAN: {str(e)}"}
+        else:
+            raise
 
 def run_BRITS(data_train, data_test, win_size=100, lr=1e-3, batch_size=128, epochs=50):
     from .models.BRITS import BRITS
