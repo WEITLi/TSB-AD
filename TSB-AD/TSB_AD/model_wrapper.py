@@ -2,7 +2,6 @@ import numpy as np
 import math
 from .utils.slidingWindows import find_length_rank
 import torch
-import torchinfo
 
 Unsupervise_AD_Pool = ['FFT', 'SR', 'NORMA', 'Series2Graph', 'Sub_IForest', 'IForest', 'LOF', 'Sub_LOF', 'POLY', 'MatrixProfile', 'Sub_PCA', 'PCA', 'HBOS', 
                         'Sub_HBOS', 'KNN', 'Sub_KNN','KMeansAD', 'KMeansAD_U', 'KShapeAD', 'COPOD', 'CBLOF', 'COF', 'EIF', 'RobustPCA', 'Lag_Llama', 'TimesFM', 'Chronos', 'MOMENT_ZS', 'DBSCAN']
@@ -332,17 +331,8 @@ def run_AutoEncoder(data_train, data_test,
     if return_model_details:
         if hasattr(clf, 'model') and isinstance(clf.model, torch.nn.Module):
             try:
-                feats_for_summary = data_test.shape[1] if len(data_test.shape) > 1 else 1
-                example_input_shape = (1, window_size, feats_for_summary) 
-
-                summary = torchinfo.summary(clf.model,
-                                            input_size=example_input_shape,
-                                            verbose=0,
-                                            device=device,
-                                            col_names = ("input_size", "output_size", "num_params", "mult_adds"))
-                
-                model_details['total_params'] = summary.total_params
-                model_details['trainable_params'] = summary.trainable_params
+                total_params = sum(p.numel() for p in clf.model.parameters())
+                trainable_params = sum(p.numel() for p in clf.model.parameters() if p.requires_grad)
                 
                 param_size_bytes = 0
                 for param in clf.model.parameters():
@@ -350,11 +340,14 @@ def run_AutoEncoder(data_train, data_test,
                 buffer_size_bytes = 0
                 for buffer in clf.model.buffers():
                     buffer_size_bytes += buffer.nelement() * buffer.element_size()
-                model_details['model_size_MB'] = (param_size_bytes + buffer_size_bytes) / (1024**2)
-                model_details['torchinfo_summary'] = str(summary)
+                model_size_mb = (param_size_bytes + buffer_size_bytes) / (1024**2)
+                
+                model_details['total_params'] = total_params
+                model_details['trainable_params'] = trainable_params
+                model_details['model_size_MB'] = model_size_mb
 
             except Exception as e:
-                model_details['error'] = f"Could not get model details using torchinfo: {str(e)}"
+                model_details['error'] = f"Could not get model details: {str(e)}"
                 print(f"Error getting model details for AutoEncoder: {e}")
                 model_details.setdefault('total_params', None)
                 model_details.setdefault('trainable_params', None)
@@ -535,17 +528,8 @@ def run_DLinear(data_train, data_test,
     if return_model_details:
         if hasattr(clf, 'model') and isinstance(clf.model, torch.nn.Module):
             try:
-                feats_for_summary = data_test.shape[1] if len(data_test.shape) > 1 else 1
-                example_input_shape = (1, window_size, feats_for_summary)
-                
-                summary = torchinfo.summary(clf.model, 
-                                            input_size=example_input_shape, 
-                                            verbose=0, 
-                                            device=device,
-                                            col_names = ("input_size", "output_size", "num_params", "mult_adds"))
-                                            
-                model_details['total_params'] = summary.total_params
-                model_details['trainable_params'] = summary.trainable_params
+                total_params = sum(p.numel() for p in clf.model.parameters())
+                trainable_params = sum(p.numel() for p in clf.model.parameters() if p.requires_grad)
                 
                 param_size_bytes = 0
                 for param in clf.model.parameters():
@@ -553,8 +537,11 @@ def run_DLinear(data_train, data_test,
                 buffer_size_bytes = 0
                 for buffer in clf.model.buffers():
                     buffer_size_bytes += buffer.nelement() * buffer.element_size()
-                model_details['model_size_MB'] = (param_size_bytes + buffer_size_bytes) / (1024**2)
-                model_details['torchinfo_summary'] = str(summary)
+                model_size_mb = (param_size_bytes + buffer_size_bytes) / (1024**2)
+                
+                model_details['total_params'] = total_params
+                model_details['trainable_params'] = trainable_params
+                model_details['model_size_MB'] = model_size_mb
 
             except Exception as e:
                 model_details['error'] = f"Could not get model details for DLinear: {str(e)}"

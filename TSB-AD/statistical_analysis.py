@@ -145,18 +145,48 @@ def form_cliques(p_values, nnames):
     # 团表示一组算法，它们之间两两没有显著差异
     return nx.find_cliques(g)
 
-def prepare_benchmark_data(df, algorithm_list, filter_condition=None):
-    """准备基准测试数据，用于统计分析"""
+def prepare_benchmark_data(df, algorithm_list, filter_condition=None, metric_column=None):
+    """准备基准测试数据，用于统计分析
+    
+    参数:
+        df: 基准测试数据DataFrame
+        algorithm_list: 要分析的算法列表
+        filter_condition: 可选的过滤条件
+        metric_column: 指定的指标列名 (如'AUC-PR', 'VUS-PR'等)
+    
+    返回:
+        包含分类器名称、数据集名称和准确率的DataFrame
+    """
     if filter_condition is not None:
-        df_filter = df[filter_condition]
+        df_filter = filter_condition(df)
     else:
         df_filter = df
         
     eval_list = []
-    for index, row in df_filter.iterrows():
-        for method in algorithm_list:
-            if method in row and pd.notna(row[method]):  # 确保方法存在且值不为 NaN
-                eval_list.append([method, row['file'] if 'file' in row else f"dataset_{index}", row[method]])
+    # 检查DataFrame结构
+    is_new_format = 'Algorithm' in df.columns and 'Dataset' in df.columns
+    
+    if is_new_format:
+        # 新格式: 每行是一个算法在一个数据集上的结果
+        for _, row in df_filter.iterrows():
+            algo = row['Algorithm']
+            if algo in algorithm_list:
+                if metric_column is not None and metric_column in row:
+                    # 转换为数值，非数值则跳过
+                    try:
+                        metric_value = float(row[metric_column])
+                        eval_list.append([algo, row['Dataset'], metric_value])
+                    except (ValueError, TypeError):
+                        continue
+    else:
+        # 旧格式: 列是算法，行是数据集
+        for index, row in df_filter.iterrows():
+            for method in algorithm_list:
+                if method in row and pd.notna(row[method]):  # 确保方法存在且值不为 NaN
+                    dataset_name = row['file'] if 'file' in row else f"dataset_{index}"
+                    # 如果指定了指标列，则使用该列的值
+                    metric_value = row[method]
+                    eval_list.append([method, dataset_name, metric_value])
     
     eval_df = pd.DataFrame(eval_list, columns=['classifier_name', 'dataset_name', 'accuracy'])
     return eval_df 

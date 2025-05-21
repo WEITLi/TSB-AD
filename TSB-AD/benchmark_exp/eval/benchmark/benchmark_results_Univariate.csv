@@ -1,2 +1,9 @@
 Dataset,Type,Algorithm,Status,Time,ErrorMsg,AUC-PR,AUC-ROC,VUS-PR,VUS-ROC,Standard-F1,PA-F1,Event-based-F1,R-based-F1,Affiliation-F
-451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,DLinear,Success,1.050919771194458,,0.021864604855706207,0.5968744510842094,0.030682813183007113,0.6779624807673719,0.04882034829634783,0.8287937743190662,0.049639372083156504,0.06800908877223223,0.7510759365398153
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,AutoEncoder,InvalidOutput,0.0005600452423095703,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,USAD,InvalidOutput,1.0013580322265625e-05,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,OmniAnomaly,InvalidOutput,6.9141387939453125e-06,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,LSTMAD,InvalidOutput,7.152557373046875e-06,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,DLinear,InvalidOutput,0.0044689178466796875,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,Donut,InvalidOutput,8.106231689453125e-06,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,LOF,InvalidOutput,5.9604644775390625e-06,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
+451_UCR_id_149_Medical_tr_3000_1st_7175.csv,Univariate,AnomalyTransformer,InvalidOutput,1.0013580322265625e-05,Invalid output type: <class 'str'>,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError,RunError
