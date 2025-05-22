@@ -1,35 +1,58 @@
 {
-    "AutoEncoder": {
-        "error": "An error occurred while running the model 'run_AutoEncoder': No module named 'TSB_AD.models.autoencoder'"
-    },
     "PCA": {
-        "error": "An error occurred while running the model 'run_PCA': run_PCA() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "PCA",
+        "model_type": "\u65e0\u76d1\u7763"
     },
     "USAD": {
-        "error": "An error occurred while running the model 'run_USAD': run_USAD() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "USAD",
+        "model_type": "\u534a\u76d1\u7763"
     },
     "OmniAnomaly": {
-        "error": "An error occurred while running the model 'run_OmniAnomaly': run_OmniAnomaly() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "OmniAnomaly",
+        "model_type": "\u534a\u76d1\u7763"
     },
     "LSTMAD": {
-        "error": "An error occurred while running the model 'run_LSTMAD': run_LSTMAD() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "LSTMAD",
+        "model_type": "\u534a\u76d1\u7763"
     },
     "DLinear": {
-        "error": "An error occurred while running the model 'run_DLinear': __init__() got an unexpected keyword argument 'device'"
-    },
-    "Donut": {
-        "error": "An error occurred while running the model 'run_Donut': run_Donut() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "DLinear",
+        "model_type": "\u534a\u76d1\u7763"
     },
     "KMeansAD": {
-        "error": "An error occurred while running the model 'run_KMeansAD': run_KMeansAD() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "KMeansAD",
+        "model_type": "\u65e0\u76d1\u7763"
     },
     "LOF": {
-        "error": "An error occurred while running the model 'run_LOF': run_LOF() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "LOF",
+        "model_type": "\u65e0\u76d1\u7763"
     },
     "OCSVM": {
-        "error": "An error occurred while running the model 'run_OCSVM': run_OCSVM() got an unexpected keyword argument 'return_model_details'"
-    },
-    "AnomalyTransformer": {
-        "error": "An error occurred while running the model 'run_AnomalyTransformer': run_AnomalyTransformer() got an unexpected keyword argument 'return_model_details'"
+        "total_params": "NA",
+        "trainable_params": "NA",
+        "model_size_MB": 0.0,
+        "algorithm": "OCSVM",
+        "model_type": "\u534a\u76d1\u7763"
     }
 }

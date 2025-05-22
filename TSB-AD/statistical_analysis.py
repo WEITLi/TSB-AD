@@ -85,7 +85,6 @@ def Friedman_Nemenyi(alpha=0.05, df_perf=None):
     
     # 如果 p 值大于 alpha，则无法拒绝零假设（无统计差异）
     if friedman_p_value >= alpha:
-        print('无统计学差异...')
         return None, None, None
         
     # Friedman 检验通过，准备 Nemenyi 检验的输入数据

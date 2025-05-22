@@ -284,7 +284,7 @@ def run_AutoEncoder(data_train, data_test,
                     window_size=100, hidden_neurons=[64, 32], 
                     lr=1e-3, epochs=50, batch_size=128, validation_size=0.2,
                     n_jobs=1):
-    from .models.autoencoder import AutoEncoder 
+    from .models.AE import AutoEncoder
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
@@ -347,10 +347,38 @@ def run_USAD(data_train, data_test, win_size=5, lr=1e-4):
 
 def run_Donut(data_train, data_test, win_size=120, lr=1e-4, batch_size=128):
     from .models.Donut import Donut
-    clf = Donut(win_size=win_size, input_c=data_test.shape[1], lr=lr, batch_size=batch_size)
-    clf.fit(data_train)
-    score = clf.decision_function(data_test)
-    return score.ravel()
+    
+    # 参数验证和调整
+    # 调整窗口大小，确保它不超过数据长度的一半
+    win_size = min(win_size, len(data_train) // 4)
+    win_size = max(win_size, 10)  # 至少保持10个时间步长
+    
+    # 调整批大小，确保它不大于有效样本数
+    valid_samples = max(1, len(data_train) - win_size + 1)
+    batch_size = min(batch_size, valid_samples)
+    batch_size = max(1, batch_size)  # 批大小至少为1
+    
+    print(f"Donut参数调整: win_size={win_size}, batch_size={batch_size}")
+    
+    try:
+        clf = Donut(win_size=win_size, input_c=data_test.shape[1], lr=lr, batch_size=batch_size)
+        clf.fit(data_train)
+        score = clf.decision_function(data_test)
+        return score.ravel()
+    except RuntimeError as e:
+        if "stack expects a non-empty TensorList" in str(e):
+            print(f"警告: Donut模型遇到空张量列表问题。尝试使用更小的窗口大小和批大小。")
+            # 尝试更保守的参数
+            smaller_win_size = max(5, win_size // 2)
+            smaller_batch_size = max(1, batch_size // 2)
+            print(f"重试Donut: win_size={smaller_win_size}, batch_size={smaller_batch_size}")
+            clf = Donut(win_size=smaller_win_size, input_c=data_test.shape[1], lr=lr, batch_size=smaller_batch_size)
+            clf.fit(data_train)
+            score = clf.decision_function(data_test)
+            return score.ravel()
+        else:
+            # 如果是其他Runtime错误，继续向上抛出
+            raise
 
 def run_TimesNet(data_train, data_test, win_size=96, lr=1e-4):
     from .models.TimesNet import TimesNet
@@ -450,7 +478,6 @@ def run_DLinear(data_train, data_test,
                 pred_len=1, validation_size=0.2, n_jobs=1):
     from .models.DLinear import DLinear
     
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     feats_train = data_train.shape[1] if len(data_train.shape) > 1 else 1
 
     clf = DLinear(window_size=window_size, 
@@ -459,8 +486,7 @@ def run_DLinear(data_train, data_test,
                   epochs=epochs, 
                   pred_len=pred_len, 
                   validation_size=validation_size, 
-                  feats=feats_train,
-                  device=device)
+                  feats=feats_train)
     clf.fit(data_train)
     score = clf.decision_function(data_test)
     return score.ravel()

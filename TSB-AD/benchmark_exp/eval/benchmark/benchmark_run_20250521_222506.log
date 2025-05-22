@@ -1,0 +1,29 @@
+2025-05-21 22:25:06,554 - INFO - --- Running Benchmark for specified algorithms (2 runs each) ---
+2025-05-21 22:25:06,555 - INFO - === Running Univariate Benchmarks ===
+2025-05-21 22:25:06,555 - INFO - --- Run 1/2 with seed 2025 ---
+2025-05-21 22:25:06,555 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 1) ---
+2025-05-21 22:25:06,558 - INFO - Running Donut on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-21 22:25:07,088 - ERROR - Invalid output for Donut on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv: <class 'str'>
+2025-05-21 22:25:07,090 - INFO - Benchmark results for Univariate (Run 1) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Univariate_run1.csv
+2025-05-21 22:25:07,090 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Univariate_run1.json
+2025-05-21 22:25:07,096 - INFO - --- Run 2/2 with seed 2026 ---
+2025-05-21 22:25:07,097 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 2) ---
+2025-05-21 22:25:07,099 - INFO - Running Donut on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-21 22:25:07,102 - ERROR - Invalid output for Donut on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv: <class 'str'>
+2025-05-21 22:25:07,104 - INFO - Benchmark results for Univariate (Run 2) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Univariate_run2.csv
+2025-05-21 22:25:07,104 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Univariate_run2.json
+2025-05-21 22:25:07,107 - INFO - === Running Multivariate Benchmarks ===
+2025-05-21 22:25:07,107 - INFO - --- Run 1/2 with seed 2125 ---
+2025-05-21 22:25:07,107 - INFO - --- Running Benchmark for Multivariate dataset: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv (Run 1) ---
+2025-05-21 22:25:07,209 - INFO - Running Donut on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv...
+2025-05-21 22:25:07,246 - ERROR - Invalid output for Donut on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv: <class 'str'>
+2025-05-21 22:25:07,247 - INFO - Benchmark results for Multivariate (Run 1) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Multivariate_run1.csv
+2025-05-21 22:25:07,248 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Multivariate_run1.json
+2025-05-21 22:25:07,249 - INFO - --- Run 2/2 with seed 2126 ---
+2025-05-21 22:25:07,249 - INFO - --- Running Benchmark for Multivariate dataset: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv (Run 2) ---
+2025-05-21 22:25:07,345 - INFO - Running Donut on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv...
+2025-05-21 22:25:07,374 - ERROR - Invalid output for Donut on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv: <class 'str'>
+2025-05-21 22:25:07,375 - INFO - Benchmark results for Multivariate (Run 2) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Multivariate_run2.csv
+2025-05-21 22:25:07,375 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Multivariate_run2.json
+2025-05-21 22:25:07,379 - INFO - All benchmark runs completed.
+2025-05-21 22:25:07,379 - INFO - Benchmark finished.

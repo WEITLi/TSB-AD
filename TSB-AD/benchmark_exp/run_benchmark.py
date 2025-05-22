@@ -45,6 +45,43 @@ def set_seed(seed_value):
 seed = 2024
 set_seed(seed)
 
+# 辅助函数：获取模型详细信息
+def get_model_details(algo_name, output=None):
+    """尝试获取模型详细信息"""
+    import sys
+    import inspect
+    import os
+    
+    model_details = {
+        'total_params': 'NA',
+        'trainable_params': 'NA',
+        'model_size_MB': 'NA',
+        'algorithm': algo_name
+    }
+    
+    # 添加估算的模型内存大小（如果输出是numpy数组）
+    if isinstance(output, np.ndarray):
+        try:
+            model_details['model_size_MB'] = round(sys.getsizeof(output) / (1024 * 1024), 3)
+        except:
+            pass
+            
+    # 尝试根据算法名获取更多信息
+    try:
+        if algo_name in Unsupervise_AD_Pool:
+            model_type = "无监督"
+        elif algo_name in Semisupervise_AD_Pool:
+            model_type = "半监督"
+        else:
+            model_type = "未知"
+            
+        model_details['model_type'] = model_type
+            
+    except Exception as e:
+        print(f"获取模型类型时出错: {e}")
+    
+    return model_details
+
 def run_single_benchmark(dataset_type, dataset_filename, dataset_dir, algorithms, optimal_hp_dict, save_dir, run_id=1):
     """运行指定类型数据集上的基准测试"""
     print(f"\n--- Running Benchmark for {dataset_type} dataset: {dataset_filename} (Run {run_id}) ---")
@@ -114,24 +151,30 @@ def run_single_benchmark(dataset_type, dataset_filename, dataset_dir, algorithms
         error_msg = ""
         
         try:
+            # 创建不包含return_model_details的参数副本
+            hp_copy = optimal_hp.copy()
+            if 'return_model_details' in hp_copy:
+                del hp_copy['return_model_details']
+                
             if algo_name in Semisupervise_AD_Pool:
                 if data_train is None:
-                     raise ValueError("Training data is required for semi-supervised models but could not be extracted.")
-                if 'return_model_details' in optimal_hp:
-                    optimal_hp_copy = optimal_hp.copy()  # 创建参数副本避免修改原始字典
-                    optimal_hp_copy['return_model_details'] = True  # 设置为返回模型详细信息
-                    output, model_details = run_Semisupervise_AD(algo_name, data_train, data, return_model_details=True, **optimal_hp_copy)
-                else:
-                    output, model_details = run_Semisupervise_AD(algo_name, data_train, data, return_model_details=True, **optimal_hp)
+                    raise ValueError("Training data is required for semi-supervised models but could not be extracted.")
+                # 现在只获取一个返回值
+                output = run_Semisupervise_AD(algo_name, data_train, data, **hp_copy)
             elif algo_name in Unsupervise_AD_Pool:
-                if 'return_model_details' in optimal_hp:
-                    optimal_hp_copy = optimal_hp.copy()  # 创建参数副本避免修改原始字典
-                    optimal_hp_copy['return_model_details'] = True  # 设置为返回模型详细信息
-                    output, model_details = run_Unsupervise_AD(algo_name, data, return_model_details=True, **optimal_hp_copy)
-                else:
-                    output, model_details = run_Unsupervise_AD(algo_name, data, return_model_details=True, **optimal_hp)
+                # 现在只获取一个返回值
+                output = run_Unsupervise_AD(algo_name, data, **hp_copy)
             else:
-                 raise ValueError(f"Algorithm '{algo_name}' not found in known pools.")
+                raise ValueError(f"Algorithm '{algo_name}' not found in known pools.")
+                
+            # 尝试获取模型详细信息（在模型运行后）
+            model_details = get_model_details(algo_name, output)
+                
+        except ImportError as e:
+            run_status = "ImportError"
+            error_msg = f"模块导入错误: {str(e)}"
+            logging.error(f"导入错误运行 {algo_name} 在 {dataset_filename} 上: {e}")
+            print(f"错误: 导入错误 {algo_name} 在 {dataset_filename} 上: {e}")
         except Exception as e:
             run_status = "Failure"
             error_msg = str(e)
@@ -143,7 +186,7 @@ def run_single_benchmark(dataset_type, dataset_filename, dataset_dir, algorithms
         # 保存模型详细信息
         if model_details is not None:
             model_details_dict[algo_name] = model_details
-            print(f"  Collected model details for {algo_name}: {len(model_details)} properties")
+            print(f"  Collected model details for {algo_name}")
         
         # 评估 (即使失败也要记录)
         evaluation_result = {}
@@ -158,7 +201,7 @@ def run_single_benchmark(dataset_type, dataset_filename, dataset_dir, algorithms
                 # 记录评估错误，但仍继续
                 # 使用预定义的默认指标名称列表
                 evaluation_result = {m: 'EvalError' for m in DEFAULT_METRIC_NAMES}
-        elif run_status == "Failure":
+        elif run_status in ["Failure", "ImportError"]:
              # 使用预定义的默认指标名称列表
              evaluation_result = {m: 'RunError' for m in DEFAULT_METRIC_NAMES}
         else: # output 不是 ndarray
@@ -345,28 +388,26 @@ if __name__ == '__main__':
     # --- 定义算法列表 --- 
     uni_algorithms = [
         # 重构型
-        'AutoEncoder', 'PCA', 'USAD', 'OmniAnomaly',
+         'Sub_PCA'
+        , 'USAD', 'OmniAnomaly',
         # 预测型
-        'LSTMAD', 'DLinear',
-        # 插补
-        'Donut',
+        'LSTMAD', 
+        'DLinear',
         # 聚类
-        'KMeansAD', 'LOF', 'OCSVM',
-        # 混合
-        'AnomalyTransformer'
+        'KMeansAD_U', 'Sub_LOF', 'Sub_OCSVM',
+        
     ]
     
     multi_algorithms = [
         # 重构型
-        'AutoEncoder', 'PCA', 'USAD', 'OmniAnomaly',
+        'PCA'
+        , 'USAD', 'OmniAnomaly',
         # 预测型
-        'LSTMAD', 'DLinear',
-        # 插补
-        'Donut', 
+        'LSTMAD',
+        'DLinear',
         # 聚类
         'KMeansAD', 'LOF', 'OCSVM',
-        # 混合
-        'AnomalyTransformer'
+        
     ]
 
     # --- 定义数据集路径 --- 

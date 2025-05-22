@@ -1,0 +1,25 @@
+2025-05-21 20:43:20,053 - INFO - --- Running Benchmark for specified algorithms (2 runs each) ---
+2025-05-21 20:43:20,053 - INFO - === Running Univariate Benchmarks ===
+2025-05-21 20:43:20,053 - INFO - --- Run 1/2 with seed 2025 ---
+2025-05-21 20:43:20,053 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 1) ---
+2025-05-21 20:43:20,062 - INFO - Running AnomalyTransformer on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-21 20:43:20,062 - ERROR - Error running AnomalyTransformer on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv: too many values to unpack (expected 2)
+2025-05-21 20:43:20,066 - INFO - Benchmark results for Univariate (Run 1) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Univariate_run1.csv
+2025-05-21 20:43:20,066 - INFO - --- Run 2/2 with seed 2026 ---
+2025-05-21 20:43:20,066 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 2) ---
+2025-05-21 20:43:20,069 - INFO - Running AnomalyTransformer on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-21 20:43:20,070 - ERROR - Error running AnomalyTransformer on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv: too many values to unpack (expected 2)
+2025-05-21 20:43:20,071 - INFO - Benchmark results for Univariate (Run 2) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Univariate_run2.csv
+2025-05-21 20:43:20,080 - INFO - === Running Multivariate Benchmarks ===
+2025-05-21 20:43:20,081 - INFO - --- Run 1/2 with seed 2125 ---
+2025-05-21 20:43:20,081 - INFO - --- Running Benchmark for Multivariate dataset: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv (Run 1) ---
+2025-05-21 20:43:20,194 - INFO - Running AnomalyTransformer on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv...
+2025-05-21 20:43:20,194 - ERROR - Error running AnomalyTransformer on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv: too many values to unpack (expected 2)
+2025-05-21 20:43:20,195 - INFO - Benchmark results for Multivariate (Run 1) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Multivariate_run1.csv
+2025-05-21 20:43:20,197 - INFO - --- Run 2/2 with seed 2126 ---
+2025-05-21 20:43:20,197 - INFO - --- Running Benchmark for Multivariate dataset: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv (Run 2) ---
+2025-05-21 20:43:20,301 - INFO - Running AnomalyTransformer on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv...
+2025-05-21 20:43:20,302 - ERROR - Error running AnomalyTransformer on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv: too many values to unpack (expected 2)
+2025-05-21 20:43:20,303 - INFO - Benchmark results for Multivariate (Run 2) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Multivariate_run2.csv
+2025-05-21 20:43:20,307 - INFO - All benchmark runs completed.
+2025-05-21 20:43:20,307 - INFO - Benchmark finished.

@@ -1,0 +1,29 @@
+2025-05-21 22:20:39,937 - INFO - --- Running Benchmark for specified algorithms (2 runs each) ---
+2025-05-21 22:20:39,937 - INFO - === Running Univariate Benchmarks ===
+2025-05-21 22:20:39,937 - INFO - --- Run 1/2 with seed 2025 ---
+2025-05-21 22:20:39,937 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 1) ---
+2025-05-21 22:20:39,940 - INFO - Running DLinear on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-21 22:20:39,940 - ERROR - Invalid output for DLinear on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv: <class 'str'>
+2025-05-21 22:20:39,941 - INFO - Benchmark results for Univariate (Run 1) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Univariate_run1.csv
+2025-05-21 22:20:39,942 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Univariate_run1.json
+2025-05-21 22:20:39,942 - INFO - --- Run 2/2 with seed 2026 ---
+2025-05-21 22:20:39,942 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 2) ---
+2025-05-21 22:20:39,944 - INFO - Running DLinear on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-21 22:20:39,944 - ERROR - Invalid output for DLinear on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv: <class 'str'>
+2025-05-21 22:20:39,945 - INFO - Benchmark results for Univariate (Run 2) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Univariate_run2.csv
+2025-05-21 22:20:39,945 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Univariate_run2.json
+2025-05-21 22:20:39,949 - INFO - === Running Multivariate Benchmarks ===
+2025-05-21 22:20:39,949 - INFO - --- Run 1/2 with seed 2125 ---
+2025-05-21 22:20:39,949 - INFO - --- Running Benchmark for Multivariate dataset: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv (Run 1) ---
+2025-05-21 22:20:40,041 - INFO - Running DLinear on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv...
+2025-05-21 22:20:40,041 - ERROR - Invalid output for DLinear on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv: <class 'str'>
+2025-05-21 22:20:40,042 - INFO - Benchmark results for Multivariate (Run 1) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Multivariate_run1.csv
+2025-05-21 22:20:40,042 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Multivariate_run1.json
+2025-05-21 22:20:40,043 - INFO - --- Run 2/2 with seed 2126 ---
+2025-05-21 22:20:40,043 - INFO - --- Running Benchmark for Multivariate dataset: 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv (Run 2) ---
+2025-05-21 22:20:40,136 - INFO - Running DLinear on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv...
+2025-05-21 22:20:40,136 - ERROR - Invalid output for DLinear on 178_Exathlon_id_5_Facility_tr_12538_1st_12638.csv: <class 'str'>
+2025-05-21 22:20:40,137 - INFO - Benchmark results for Multivariate (Run 2) saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/benchmark_results_Multivariate_run2.csv
+2025-05-21 22:20:40,137 - INFO - Model details saved to /Users/weitao_li/CodeField/DCAI/TSB-AD/TSB-AD/benchmark_exp/eval/benchmark/model_details_Multivariate_run2.json
+2025-05-21 22:20:40,140 - INFO - All benchmark runs completed.
+2025-05-21 22:20:40,140 - INFO - Benchmark finished.
