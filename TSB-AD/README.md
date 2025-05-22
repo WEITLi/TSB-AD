@@ -14,7 +14,7 @@ Key features include:
 
 ### Requirements
 
-This project requires Python 3.9+ and the following libraries:
+This project requires Python 3.11+ and the following libraries:
 tqdm
 torchinfo
 h5py

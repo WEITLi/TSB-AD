@@ -1,0 +1,6 @@
+2025-05-22 12:09:37,674 - INFO - --- Running Benchmark for specified algorithms (1 runs each) ---
+2025-05-22 12:09:37,674 - INFO - === Running Univariate Benchmarks ===
+2025-05-22 12:09:37,674 - INFO - --- Run 1/1 with seed 2025 ---
+2025-05-22 12:09:37,674 - INFO - --- Running Benchmark for Univariate dataset: 451_UCR_id_149_Medical_tr_3000_1st_7175.csv (Run 1) ---
+2025-05-22 12:09:37,679 - INFO - Running Sub_PCA on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
+2025-05-22 12:09:40,095 - INFO - Running USAD on 451_UCR_id_149_Medical_tr_3000_1st_7175.csv...
